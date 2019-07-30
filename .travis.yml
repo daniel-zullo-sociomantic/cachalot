@@ -17,9 +17,6 @@ env:
         - DIST=bionic IMAGES=develbase
 
 script:
-    - make -rj2 pre-test
-    - make -rj2 build
-    - make -rj2 test
     - docker images
 
 deploy:
@@ -31,7 +28,7 @@ deploy:
     # different commands
     script:
         set -eux ;
+        echo "$DOCKER_USER" ;
+        echo "$DOCKER_PASS" ;
         docker login -u "$DOCKER_USER" -p "$DOCKER_PASS"
     skip_cleanup: true
-    on:
-        tags: false
