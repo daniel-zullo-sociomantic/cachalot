@@ -31,8 +31,7 @@ deploy:
     # different commands
     script:
         set -eux ;
-        docker login -u "$DOCKER_USER" -p "$DOCKER_PASS" ;
-        make -rj2 push
+        docker login -u "$DOCKER_USER" -p "$DOCKER_PASS"
     skip_cleanup: true
     on:
         tags: true
