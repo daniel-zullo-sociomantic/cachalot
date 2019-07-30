@@ -34,4 +34,4 @@ deploy:
         docker login -u "$DOCKER_USER" -p "$DOCKER_PASS"
     skip_cleanup: true
     on:
-        tags: true
+        tags: false
