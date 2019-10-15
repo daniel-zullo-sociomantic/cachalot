@@ -16,11 +16,8 @@ apt_add_bintray_repos sociomantic-tsunami/ebtree sociomantic-tsunami/dlang \
 
 # Add extra DMD D-APT repo
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EBCF975E5BA24D5E
-# Added manually until D-APT is fixed
-#wget http://downloads.sourceforge.net/project/d-apt/files/d-apt.list \
-#               -O /etc/apt/sources.list.d/d-apt.list
-echo "deb http://downloads.sourceforge.net/project/d-apt/ d-apt main" \
-	> /etc/apt/sources.list.d/d-apt.list
+wget http://downloads.sourceforge.net/project/d-apt/files/d-apt.list \
+	-O /etc/apt/sources.list.d/d-apt.list
 
 if test "$(echo "$VERSION_DMD" | cut -d. -f1)" -eq 2 -a \
 	"$(echo "$VERSION_DMD" | cut -d. -f2)" -ge 077
@@ -37,10 +34,6 @@ apt_pin_install \
 	libebtree6="$VERSION_EBTREE" \
 		libebtree6-dbg="$VERSION_EBTREE" \
 		libebtree6-dev="$VERSION_EBTREE" \
-	dmd1="$VERSION_DMD1" \
-	libtangort-dmd-dev="$VERSION_TANGORT" \
-	dmd-transitional="$VERSION_DMD_TRANSITIONAL" \
-	d1to2fix="$VERSION_D1TO2FIX" \
 	$DMD_PKG \
 	hmod="$VERSION_HMOD"
 
